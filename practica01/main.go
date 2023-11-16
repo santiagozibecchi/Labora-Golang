@@ -188,22 +188,16 @@ func main() {
 		switch choosingOptions {
 		case 1:
 			ejercicio01()
-			break
 		case 2:
  			ejercicio02()
-			break
 		case 3:
 			ejercicio03()
-			break
 		case 4:
 			ejercicio04()
-			break
 		case 5:
 			ejercicio05()
-			break		
 		case 6:
 			ejercicioGrupal()
-			break		
 		case 0:
 			fmt.Println("Usted ha salido del programa")
 			return
