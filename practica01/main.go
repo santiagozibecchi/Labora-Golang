@@ -8,7 +8,7 @@ func ejercicio01() {
 	var number int
 
 	fmt.Print("Ingrese un valor numerico: ")
-	
+
 	_, err := fmt.Scan(&number)
 	if err != nil {
 		fmt.Println("Error al leer el número:", err)
@@ -35,9 +35,9 @@ func ejercicio02() {
 		fmt.Print("Error al leer el número", err)
 	}
 
-	if number % 2 == 0 {
+	if number%2 == 0 {
 		fmt.Print("El número ingresa es PAR\n")
-	} else if number % 2 != 0 {
+	} else if number%2 != 0 {
 		fmt.Print("El número ingresa es IMPAR\n")
 	}
 
@@ -95,9 +95,9 @@ func ejercicio04() {
 	fmt.Printf("El periodo expresado en segundos es: %.2f\n", totalSeconds)
 }
 
-func ejercicio05(){
+func ejercicio05() {
 
-	var x int 
+	var x int
 	fmt.Print("Ingrese un numero: ")
 	fmt.Scan(&x)
 
@@ -108,42 +108,40 @@ func getRange(x int) (int, int, int, int, int) {
 
 	s1, s2, s3, s4, s5 := 0, 0, 0, 0, 0
 
-    switch {
-    case x >= 0 && x <= 50:
-        s1 = x
-        return s1, s2, s3, s4, s5
-    case x > 50 && x <= 100:
-        s1 = 50
-        s2 = x - 50
-        return s1, s2, s3, s4, s5
-    case x > 100 && x <= 700:
-        s1 = 50
-        s2 = 50
-        s3 = x - 100
-        return s1, s2, s3, s4, s5
-    case x > 700 && x <= 1500:
-        s1 = 50
-        s2 = 50
-        s3 = 600
-        s4 = x - 700
-        return s1, s2, s3, s4, s5
-    case x > 1500:
-        s1 = 50
-        s2 = 50
-        s3 = 600
-        s4 = 800
-        s5 = x - 1500
-        return s1, s2, s3, s4, s5
-    default:
-        return s1, s2, s3, s4, s5
-    }
+	switch {
+	case x >= 0 && x <= 50:
+		s1 = x
+		return s1, s2, s3, s4, s5
+	case x > 50 && x <= 100:
+		s1 = 50
+		s2 = x - 50
+		return s1, s2, s3, s4, s5
+	case x > 100 && x <= 700:
+		s1 = 50
+		s2 = 50
+		s3 = x - 100
+		return s1, s2, s3, s4, s5
+	case x > 700 && x <= 1500:
+		s1 = 50
+		s2 = 50
+		s3 = 600
+		s4 = x - 700
+		return s1, s2, s3, s4, s5
+	case x > 1500:
+		s1 = 50
+		s2 = 50
+		s3 = 600
+		s4 = 800
+		s5 = x - 1500
+		return s1, s2, s3, s4, s5
+	default:
+		return s1, s2, s3, s4, s5
+	}
 }
-
-
 
 func ejercicioGrupal() {
 	// Descripción del Problema:
-	// Escribe un programa que calcule el área y el perímetro de un rectángulo. 
+	// Escribe un programa que calcule el área y el perímetro de un rectángulo.
 	// El programa debe pedir al usuario que introduzca la longitud y la anchura del rectángulo y luego calcular y mostrar el área y el perímetro.
 	// Especificaciones:
 	// Solicita al usuario que ingrese la longitud y la anchura del rectángulo.
@@ -151,8 +149,8 @@ func ejercicioGrupal() {
 	// Calcula el perímetro del rectángulo (2 * (longitud + anchura)).
 	// Muestra los resultados (área y perímetro) al usuario.
 
-	var longuitud int 
-	var ancho int 
+	var longuitud int
+	var ancho int
 
 	fmt.Print("Ingrese la longuitud: ")
 	fmt.Scan(&longuitud)
@@ -165,8 +163,6 @@ func ejercicioGrupal() {
 	fmt.Println("El area del rectangulo es: ", area)
 	fmt.Println("El area del rectangulo es: ", perimetro)
 }
-
-
 
 func main() {
 
@@ -189,7 +185,7 @@ func main() {
 		case 1:
 			ejercicio01()
 		case 2:
- 			ejercicio02()
+			ejercicio02()
 		case 3:
 			ejercicio03()
 		case 4:
