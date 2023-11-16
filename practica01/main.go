@@ -169,21 +169,47 @@ func ejercicioGrupal() {
 
 
 func main() {
-	// Realizar un algoritmo para leer un número e informar si es mayor, igual o menos a cero.
-	// ejercicio01()
 
-	// Escribir un algoritmo que determine si un número es par.
-	// ejercicio02()
+	var choosingOptions int
+	fmt.Println("Eliga uno de los siguientes ejercicios")
+	fmt.Println("1. Leer un número e informar si es mayor, igual o menos a cero.")
+	fmt.Println("2. Determine si un número es par")
+	fmt.Println("3. Calcular e informar la suma y el promedio de dichos valores")
+	fmt.Println("4. Periodo expresado en días, horas, minutos y segundos a periodo expresado en segundos")
+	fmt.Println("5. Suma de una serie de números siguiendo las restricciones impuestas")
+	fmt.Println("6. Obtener area y perimetro de un rectangulo")
+	fmt.Println("0. Presione 0 para salir")
 
-	// Dados tres valores ambientales de temperatura, desarrollar un algoritmo para calcular e informar la suma y el promedio de dichos valores.
-	// ejercicio03()
+	for true {
 
-	// Redactar un algoritmo para pasar un periodo expresado en días, horas, minutos y segundos a periodo expresado en segundos.
-	// ejercicio04()
+		fmt.Print("\nIngrese la opcion: ")
+		fmt.Scan(&choosingOptions)
 
-	// Expresar a un número cualquiera como la suma de una serie de números siguiendo las restricciones impuestas a continuación.
-	// ejercicio05()
+		switch choosingOptions {
+		case 1:
+			ejercicio01()
+			break
+		case 2:
+ 			ejercicio02()
+			break
+		case 3:
+			ejercicio03()
+			break
+		case 4:
+			ejercicio04()
+			break
+		case 5:
+			ejercicio05()
+			break		
+		case 6:
+			ejercicioGrupal()
+			break		
+		case 0:
+			fmt.Println("Usted ha salido del programa")
+			return
+		default:
+			fmt.Println("Opción no válida. Intente de nuevo.")
+		}
+	}
 
-
-	// ejercicioGrupal()
 }
