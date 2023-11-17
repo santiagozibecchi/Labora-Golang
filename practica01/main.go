@@ -164,16 +164,54 @@ func ejercicioGrupal() {
 	fmt.Println("El area del rectangulo es: ", perimetro)
 }
 
+func forValientPeople () {
+/*
+1. Para valientes: Pasar un periodo expresado en segundos a un periodo expresado en días, horas, minutos y segundos.
+	1030 segundos son 17 minutos con 10 segundos
+	12045 segundos son 3 horas, 20 minutos con 45 segundos
+	176520 segundos son 2 días, 1 hora, 2 minutos con 0 segundos.
+*/
+
+	var dateInSeconds int 
+
+	fmt.Print("Ingrese la fecha en segundos: ")
+	fmt.Scan(&dateInSeconds)
+
+	var seconds int
+	var totalMinutes int
+	var minutes int
+	var totalHours int
+	var hours int
+	var day int
+
+	seconds = dateInSeconds % 60
+	totalMinutes = (dateInSeconds - seconds)/60
+	minutes = totalMinutes%60
+	totalHours = (totalMinutes - minutes)/60
+	hours = totalHours%24
+	day = (totalHours - hours)/24
+
+	if (day != 0) {
+		fmt.Printf("%d dias - %d horas - %d minutos - %d segundos", day, hours, minutes, seconds)
+	} else if hours != 0 {
+		fmt.Printf("%d horas - %d minutos - %d segundos", hours, minutes, seconds)
+	} else if minutes != 0 {
+		fmt.Printf(" %d minutos - %d segundos", minutes, seconds)
+	}
+
+}
+
 func main() {
 
 	var choosingOptions int
-	fmt.Println("Eliga uno de los siguientes ejercicios")
+	fmt.Println("Eliga uno de los siguientes ejercicios:")
 	fmt.Println("1. Leer un número e informar si es mayor, igual o menos a cero.")
-	fmt.Println("2. Determine si un número es par")
-	fmt.Println("3. Calcular e informar la suma y el promedio de dichos valores")
-	fmt.Println("4. Periodo expresado en días, horas, minutos y segundos a periodo expresado en segundos")
-	fmt.Println("5. Suma de una serie de números siguiendo las restricciones impuestas")
-	fmt.Println("6. Obtener area y perimetro de un rectangulo")
+	fmt.Println("2. Determine si un número es par.")
+	fmt.Println("3. Calcular e informar la suma y el promedio de dichos valores.")
+	fmt.Println("4. Periodo expresado en días, horas, minutos y segundos a periodo expresado en segundos.")
+	fmt.Println("5. Suma de una serie de números siguiendo las restricciones impuestas.")
+	fmt.Println("6. Obtener area y perimetro de un rectangulo.")
+	fmt.Println("7. Pasar un periodo expresado en segundos a un periodo expresado en días, horas, minutos y segundos.")
 	fmt.Println("0. Presione 0 para salir")
 
 	for true {
@@ -194,6 +232,8 @@ func main() {
 			ejercicio05()
 		case 6:
 			ejercicioGrupal()
+		case 7:
+			forValientPeople()
 		case 0:
 			fmt.Println("Usted ha salido del programa")
 			return
