@@ -199,12 +199,40 @@ func forValientPeople () {
 		fmt.Printf(" %d minutos - %d segundos", minutes, seconds)
 	}
 
+
+}
+type exerciseFunc func()
+func executeExercise (fn exerciseFunc) {
+	
+	fn()
+
+	var optSelected int
+
+	fmt.Println("\n¿Desea seguir realizando el mismo ejercicio? Presione 1 para continuar o 0 para volver al menu")
+
+	_, err := fmt.Scan(&optSelected)
+	for optSelected > 1 || optSelected < 0 || err != nil {
+		fmt.Println("😡🫵  Por favor! Ingrese 1 para continuar o 0 para volver al menu principal")
+		fmt.Println("----- El valor", optSelected, "no es valido -----")
+		fmt.Scan(&optSelected)
+	}
+
+	for optSelected == 1 {
+		fn()
+		fmt.Println("\n¿Desea seguir realizando el mismo ejercicio? Presione 1 para continuar o 0 para volver al menu")
+		fmt.Scan(&optSelected)
+	}
+
+	if optSelected == 0 {
+		main()
+	}
+
 }
 
 func main() {
 
 	var choosingOptions int
-	fmt.Println("Eliga uno de los siguientes ejercicios:")
+	fmt.Println("\nEliga uno de los siguientes ejercicios:")
 	fmt.Println("1. Leer un número e informar si es mayor, igual o menos a cero.")
 	fmt.Println("2. Determine si un número es par.")
 	fmt.Println("3. Calcular e informar la suma y el promedio de dichos valores.")
@@ -221,19 +249,19 @@ func main() {
 
 		switch choosingOptions {
 		case 1:
-			ejercicio01()
+			executeExercise(ejercicio01)
 		case 2:
-			ejercicio02()
+			executeExercise(ejercicio02)
 		case 3:
-			ejercicio03()
+			executeExercise(ejercicio03)
 		case 4:
-			ejercicio04()
+			executeExercise(ejercicio04)
 		case 5:
-			ejercicio05()
+			executeExercise(ejercicio05)
 		case 6:
-			ejercicioGrupal()
+			executeExercise(ejercicioGrupal)
 		case 7:
-			forValientPeople()
+			executeExercise(forValientPeople)
 		case 0:
 			fmt.Println("Usted ha salido del programa")
 			return
