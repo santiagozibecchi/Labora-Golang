@@ -133,7 +133,17 @@ func ejercicio06(){
 	}
 }
 
-func ejercicio07() {
+
+func factorial(number int) int {
+    if number == 0 || number == 1 {
+        return 1
+    }
+    return number * factorial(number-1)
+}
+
+
+func ejercicio07 () {
+
 
 	number1 := 3
 	number2 := 7
@@ -169,25 +179,6 @@ func ejercicio07() {
 }
 
 
-func ejercicio08(){
-/*
-	Desarrollar un algoritmo para hallar el mínimo común múltiplo (abreviado como mcm) 
-	entre dos números naturales. El mínimo común múltiplo entre dos números es el menor 
-	número que es divisible por ambos.
-	Ej.: mcm (6,9) = 18, mcm (10,15) = 30, mcm (7,14) = 14, mcm (3,7) = 21
-*/
-
-}
-
-func ejercicio09(){
- /*
-	Dado un número de 5 cifras, determinar si es capicúa. Si fuera un número de 6 cifras 
-	¿Sirve la resolución planteada? ¿Cómo habría que modificarla?
- */
-
-}
-
-
 func main() {
 
 	// determinar el mayor de 3 números
@@ -204,11 +195,7 @@ func main() {
 
 	// ejercicio06()
 
-	// ejercicio07()
-
-	// ejercicio08()
-
-	// ejercicio09()
+	ejercicio07()
 
 
 }
