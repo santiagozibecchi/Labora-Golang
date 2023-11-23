@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func executeExercise (fn func()) {
 	
@@ -135,8 +138,8 @@ func ejercicio06(){
 
 func ejercicio07() {
 
-	number1 := 3
-	number2 := 7
+	number1 := 10
+	number2 := 15
  
 	var divisibleNumbersForN1 []int = []int{}
 	var divisibleNumbersForN2 []int = []int{}
@@ -172,11 +175,58 @@ func ejercicio07() {
 func ejercicio08(){
 /*
 	Desarrollar un algoritmo para hallar el mínimo común múltiplo (abreviado como mcm) 
-	entre dos números naturales. El mínimo común múltiplo entre dos números es el menor 
-	número que es divisible por ambos.
+	entre dos números naturales. 
+	El mínimo común múltiplo entre dos números es el menor número que es divisible por ambos.
 	Ej.: mcm (6,9) = 18, mcm (10,15) = 30, mcm (7,14) = 14, mcm (3,7) = 21
 */
 
+/*
+	6 * n = x ; n = 3 ; x = 18
+	9 * m = x ; m = 2 ; x = 18
+	min (6n == 9m) = x
+	Entonces tengo que encontrar la primer coincidencia para x
+	Otro analisis:
+	El multiplo de los numeros dividido: n1*n2=m ; m/n1 =n2 ; m/n2 = n1
+*/
+
+	number1 := 3 // 7
+	number2 := 7 // 7 
+	
+	maxCount := number1*number2
+	mcm := 0
+
+	for i := 1; i <= maxCount; i++ {
+		
+		if number1%i == 0 && number2%i == 0 {
+			mcm = i
+			break
+		}
+	}
+
+	fmt.Printf("El mínimo común múltiplo entre %d y %d es: %d\n", number1, number2, mcm)
+}
+
+func reverseString(input string) string {
+
+    runes := []rune(input)
+    length := len(runes)
+
+    for i := 0; i < length/2; i++ {
+        // Intercambiar caracteres desde el principio con los del final
+        runes[i], runes[(length-1)-i] = runes[(length-1)-i], runes[i]
+    }
+
+    return string(runes)
+}
+
+
+func isCapicua(enterfield string) bool {
+
+	if reverseString(enterfield) == enterfield {
+		return true
+	}
+
+	return false
 }
 
 func ejercicio09(){
@@ -184,6 +234,16 @@ func ejercicio09(){
 	Dado un número de 5 cifras, determinar si es capicúa. Si fuera un número de 6 cifras 
 	¿Sirve la resolución planteada? ¿Cómo habría que modificarla?
  */
+
+	enterNumber := 12321
+	stringCovertedNumber := strconv.Itoa(enterNumber)
+
+
+	if isCapicua(stringCovertedNumber) {
+		fmt.Printf("El numero %d es capicua\n", enterNumber)
+	} else {
+		fmt.Printf("El numero %d, no es capicua\n", enterNumber)
+	}
 
 }
 
