@@ -247,6 +247,35 @@ func ejercicio09(){
 
 }
 
+func factorial(number int) int {
+
+	if number == 0 {
+		return 1		
+	}
+	
+	return number * factorial(number-1)
+}
+
+func sumatoria(number int) int {
+
+	acc := 0
+	for i := number; i > 0; i-- {
+		acc+=i
+	}
+
+	return acc
+}
+
+func ejercicio10()  {
+/*
+	Realice un algoritmo para multiplicar el factorial de un número por su sumatoria.
+*/
+	enterNumber := 3
+
+	multiplicationFacXSum := sumatoria(enterNumber) * factorial(enterNumber)
+
+	fmt.Println("factorial de un número por su sumatoria", multiplicationFacXSum)
+}
 
 func main() {
 
@@ -269,7 +298,8 @@ func main() {
 	// ejercicio08()
 
 	// ejercicio09()
-
+	
+	ejercicio10()
 
 }
 
