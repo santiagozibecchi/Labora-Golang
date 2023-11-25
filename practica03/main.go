@@ -183,6 +183,30 @@ func ejercicio10()  {
 	*/
 }
 
+
+func dnaSequence(str1 string, str2 string) bool {
+	// var sequence []rune = []rune{'A', 'T', 'G', 'C', 'G', 'T', 'A', 'T'}
+	strToRune1 := []rune(str1) //  'G', 'C', 'G', 'T', 'A', 'T', 'A', 'T' 
+	strToRune2 := []rune(str2) //  'G', 'C', 'G', 'T', 'A', 'T', 'A', 'T' 
+
+	match := false
+	
+	for i := 0; i < len(strToRune1); i++ {
+		
+		for j := 0; j < len(strToRune2); j++ {	
+			fmt.Println(len(strToRune1))
+
+			if strToRune1[(i+j)%(len(strToRune1))] != strToRune2[(j)] {
+
+				match = false
+				break
+			}
+		}
+	}
+
+	return match
+}
+
 func main() {
 
 	// ejercicio01()
@@ -202,5 +226,9 @@ func main() {
 	// Resuelto pero no acá ejercicio09()
 	// ejercicio10()
 
-
+	if dnaSequence("GCGTATAT", "ATATGCGT") {
+		fmt.Println("Verdadero")
+	} else {
+		fmt.Println("Falso")
+	}
 }
