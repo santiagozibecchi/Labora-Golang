@@ -171,6 +171,19 @@ func ejercicio07() {
 	fmt.Printf("El MCD de %d y %d es: %d\n", number1, number2, tempMCD)
 }
 
+func mcm(number1 int, number2 int) int {
+	maxCount := number1*number2
+	mcm := 0
+
+	for i := 1; i <= maxCount; i++ {
+		
+		if number1%i == 0 && number2%i == 0 {
+			mcm = i
+			break
+		}
+	}
+	return mcm
+}
 
 func ejercicio08(){
 /*
@@ -192,16 +205,7 @@ func ejercicio08(){
 	number1 := 3 // 7
 	number2 := 7 // 7 
 	
-	maxCount := number1*number2
-	mcm := 0
-
-	for i := 1; i <= maxCount; i++ {
-		
-		if number1%i == 0 && number2%i == 0 {
-			mcm = i
-			break
-		}
-	}
+	mcm := mcm(number1, number2)
 
 	fmt.Printf("El mínimo común múltiplo entre %d y %d es: %d\n", number1, number2, mcm)
 }
@@ -277,6 +281,38 @@ func ejercicio10()  {
 	fmt.Println("factorial de un número por su sumatoria", multiplicationFacXSum)
 }
 
+func potencia(x int, y int) int  {
+	acc := 1
+
+	for i := 0; i < y; i++ {
+		acc*=x
+	}
+
+	return acc
+}
+
+func ejercicio11()  {
+	/*
+		Realice un algoritmo que dado dos números calcule el resultado de la potencia del primero elevado 
+		al segundo más la sumatoria del primero multiplicado el segundo, todo lo anterior dividido
+		el mínimo común múltiplo entre ambos números.
+	*/
+
+	var x int
+	var y int
+	var result int
+
+	fmt.Print("Ingrese el numero X: ")
+	fmt.Scan(&x)
+	fmt.Print("Ingrese el numero Y: ")
+	fmt.Scan(&y)
+
+	result = (potencia(x,y)+sumatoria(x)*y)/mcm(x,y)
+
+	fmt.Printf("El resultado del algoritmo dado x=%d e y=%d es de: %d\n", x, y, result)
+	
+}
+
 func main() {
 
 	// determinar el mayor de 3 números
@@ -299,7 +335,9 @@ func main() {
 
 	// ejercicio09()
 	
-	ejercicio10()
+	// ejercicio10()
+
+	ejercicio11()
 
 }
 
