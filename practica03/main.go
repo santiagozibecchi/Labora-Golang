@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strconv"
 )
 
 func  ejercicio01()  {
@@ -168,20 +169,159 @@ func ejercicio08()  {
 	Realice un algoritmo que dado un string te diga si es palindromo
 	*/
 
+	enterString := "neuquen"
+
+	if reverseString(enterString) == enterString {
+		fmt.Println("Es string ingresado SI es palindromo")
+	} else {
+		fmt.Println("Es string ingresado NO es palindromo")
+	}
+
 }
 
-func ejercicio09()  {
-	/*
-	Realice un algoritmo que dado un número te diga si es capicua.
-	*/
-	// RESUELTO ANTERIORMENTE
+func reverseString(input string) string {
+
+    runes := []rune(input)
+    length := len(runes)
+
+    for i := 0; i < length/2; i++ {
+        // Intercambiar caracteres desde el principio con los del final
+        runes[i], runes[(length-1)-i] = runes[(length-1)-i], runes[i]
+    }
+
+    return string(runes)
+}
+
+func isCapicua(enterfield string) bool {
+
+	if reverseString(enterfield) == enterfield {
+		return true
+	}
+
+	return false
+}
+
+func ejercicio09(){
+ /*
+	Dado un número de 5 cifras, determinar si es capicúa. Si fuera un número de 6 cifras 
+	¿Sirve la resolución planteada? ¿Cómo habría que modificarla?
+ */
+
+	enterNumber := 12321
+	stringCovertedNumber := strconv.Itoa(enterNumber)
+
+
+	if isCapicua(stringCovertedNumber) {
+		fmt.Printf("El numero %d es capicua\n", enterNumber)
+	} else {
+		fmt.Printf("El numero %d, no es capicua\n", enterNumber)
+	}
+
 }
 
 func ejercicio10()  {
 	/*
 	Realice un algoritmo para multiplicar el factorial de un número por su sumatoria.
 	*/
+	/*
+	Realice un algoritmo para multiplicar el factorial de un número por su sumatoria.
+*/
+	enterNumber := 3
+
+	multiplicationFacXSum := sumatoria(enterNumber) * factorial(enterNumber)
+
+	fmt.Println("factorial de un número por su sumatoria", multiplicationFacXSum)
 }
+
+func factorial(number int) int {
+
+	if number == 0 {
+		return 1		
+	}
+	
+	return number * factorial(number-1)
+}
+
+func sumatoria(number int) int {
+
+	acc := 0
+	for i := number; i > 0; i-- {
+		acc+=i
+	}
+
+	return acc
+}
+
+
+func potencia(x int, y int) int  {
+	acc := 1
+
+	for i := 0; i < y; i++ {
+		acc*=x
+	}
+
+	return acc
+}
+
+func mcm(number1 int, number2 int) int {
+	maxCount := number1*number2
+	mcm := 0
+
+	for i := 1; i <= maxCount; i++ {
+		
+		if number1%i == 0 && number2%i == 0 {
+			mcm = i
+			break
+		}
+	}
+	return mcm
+}
+
+func ejercicio11()  {
+	/*
+		Realice un algoritmo que dado dos números calcule el resultado de la potencia del primero elevado 
+		al segundo más la sumatoria del primero multiplicado el segundo, todo lo anterior dividido
+		el mínimo común múltiplo entre ambos números.
+	*/
+
+	var x int
+	var y int
+	var result int
+
+	fmt.Print("Ingrese el numero X: ")
+	fmt.Scan(&x)
+	fmt.Print("Ingrese el numero Y: ")
+	fmt.Scan(&y)
+
+	result = (potencia(x,y)+sumatoria(x)*y)/mcm(x,y)
+
+	fmt.Printf("El resultado del algoritmo dado x=%d e y=%d es de: %d\n", x, y, result)
+	
+}
+
+func main() {
+
+	// ejercicio01()
+	// ejercicio02()
+	// ejercicio03()
+
+	// ejercicio04()
+	// ejercicio05()
+	// ejercicio06()
+	
+	
+	// result := ejercicio07()
+	// fmt.Println(result)
+	
+	// ejercicio09()
+	// ejercicio10()
+	// ejercicio11()
+
+	// ejercicio08()
+}
+
+
+
 
 
 func dnaSequence(str1 string, str2 string) bool {
@@ -205,30 +345,4 @@ func dnaSequence(str1 string, str2 string) bool {
 	}
 
 	return match
-}
-
-func main() {
-
-	// ejercicio01()
-	// ejercicio02()
-	// ejercicio03()
-
-	// ejercicio04()
-	// ejercicio05()
-	// ejercicio06()
-	
-	
-	// result := ejercicio07()
-	// fmt.Println(result)
-	
-	// TODO 
-	// ejercicio08()
-	// Resuelto pero no acá ejercicio09()
-	// ejercicio10()
-
-	if dnaSequence("GCGTATAT", "ATATGCGT") {
-		fmt.Println("Verdadero")
-	} else {
-		fmt.Println("Falso")
-	}
 }

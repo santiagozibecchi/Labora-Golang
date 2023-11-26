@@ -224,95 +224,6 @@ func reverseString(input string) string {
 }
 
 
-func isCapicua(enterfield string) bool {
-
-	if reverseString(enterfield) == enterfield {
-		return true
-	}
-
-	return false
-}
-
-func ejercicio09(){
- /*
-	Dado un número de 5 cifras, determinar si es capicúa. Si fuera un número de 6 cifras 
-	¿Sirve la resolución planteada? ¿Cómo habría que modificarla?
- */
-
-	enterNumber := 12321
-	stringCovertedNumber := strconv.Itoa(enterNumber)
-
-
-	if isCapicua(stringCovertedNumber) {
-		fmt.Printf("El numero %d es capicua\n", enterNumber)
-	} else {
-		fmt.Printf("El numero %d, no es capicua\n", enterNumber)
-	}
-
-}
-
-func factorial(number int) int {
-
-	if number == 0 {
-		return 1		
-	}
-	
-	return number * factorial(number-1)
-}
-
-func sumatoria(number int) int {
-
-	acc := 0
-	for i := number; i > 0; i-- {
-		acc+=i
-	}
-
-	return acc
-}
-
-func ejercicio10()  {
-/*
-	Realice un algoritmo para multiplicar el factorial de un número por su sumatoria.
-*/
-	enterNumber := 3
-
-	multiplicationFacXSum := sumatoria(enterNumber) * factorial(enterNumber)
-
-	fmt.Println("factorial de un número por su sumatoria", multiplicationFacXSum)
-}
-
-func potencia(x int, y int) int  {
-	acc := 1
-
-	for i := 0; i < y; i++ {
-		acc*=x
-	}
-
-	return acc
-}
-
-func ejercicio11()  {
-	/*
-		Realice un algoritmo que dado dos números calcule el resultado de la potencia del primero elevado 
-		al segundo más la sumatoria del primero multiplicado el segundo, todo lo anterior dividido
-		el mínimo común múltiplo entre ambos números.
-	*/
-
-	var x int
-	var y int
-	var result int
-
-	fmt.Print("Ingrese el numero X: ")
-	fmt.Scan(&x)
-	fmt.Print("Ingrese el numero Y: ")
-	fmt.Scan(&y)
-
-	result = (potencia(x,y)+sumatoria(x)*y)/mcm(x,y)
-
-	fmt.Printf("El resultado del algoritmo dado x=%d e y=%d es de: %d\n", x, y, result)
-	
-}
-
 func main() {
 
 	// determinar el mayor de 3 números
@@ -337,7 +248,7 @@ func main() {
 	
 	// ejercicio10()
 
-	ejercicio11()
+
 
 }
 
