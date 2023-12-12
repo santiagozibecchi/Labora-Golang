@@ -1,0 +1,14 @@
+### Ejercicio Introductorio
+Hacer una suma de los primeros 100 numeros, de forma secuencial y luego de forma concurrente y apreciar la diferencia en el tiempo de ejecución.
+
+
+# Ejercicio 1
+
+Usando la técnica del sleep sort, hagamos un programa que imprima los primeros 10 números enteros en orden ascendiente.
+¿ Es posible hacerlo en orden descendiente?
+
+# Ejercicio 2
+
+Escriba un programa en donde haya dos gorutinas donde una suma los primeros 100 números pares y la otra los 100 primeros números impares. 
+Se desea saber cual gorutina “gana”, es decir, quien termina termina primero.
+Para sincronizar se puede usar grupos de espera o canales. Preferentemente podés realizar el ejercicio con ambos mecanismos para que te vayas familiarizando.
