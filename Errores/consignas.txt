@@ -1,38 +1,33 @@
-// Prácticas: Manejo de errores
+Prácticas: Manejo de errores
 
 
-// # Ejercicios
+# Ejercicios
 
-/*
 ## Ejercicio 1: Validación de entrada
 
 Escribe un programa en Go que solicite al usuario dos números (numerador y denominador), intente realizar la división y maneje el caso en el que el
 denominador sea cero. Si el denominador es cero, imprime un mensaje de error indicando que la división no es posible. En caso contrario, 
 imprime el resultado de la división con dos decimales.
-/*
 
 
-/*
 ## **Ejercicio 2: Validación de entrada**
 
 Crea una función que acepte un string y devuelva un error si el string está vacío o si es demasiado largo (por ejemplo, más de 100 caracteres).
-*/
 
-/*
+
 ## **Ejercicio 3: Conversión de tipos con manejo de errores**
 Escribe una función que convierta un string a un número entero (**`int`**). La función debe devolver un error si el string no puede 
 convertirse a un número. Prueba tu función con diferentes strings, incluyendo algunos que no sean números. Usa `panic` y `recover` para manejar los errores
-*/
 
-/*
+
 ## **Ejercicio 4: Manejo de errores en operaciones de archivos**
 
 Escribe un programa que intente abrir un archivo cuyo nombre y directorio se pasa como argumento en la línea de comandos. Si el archivo no existe, 
 el programa debe crearlo. Si hay algún otro error al abrir el archivo, el programa debe informar del error. No olvides cerrar el archivo
 correctamente en todos los casos.
-*/
 
-/*
+
+
 ## Ejercicio 5: **Sistema de Calificaciones de Estudiantes**
 
 **Objetivo**: Crear un programa en Go que gestione las calificaciones de los estudiantes utilizando mapas. y que maneje errores comunes y excepciones.
@@ -63,4 +58,3 @@ correctamente en todos los casos.
 - Utiliza ciclos y declaraciones condicionales para validar la entrada del usuario.
 - Practica escribir mensajes de error claros y útiles que ayuden al usuario a entender qué salió mal.
 - Considera todos los casos posibles donde algo podría ir mal y cómo tu programa debería responder en esos casos.
-*/
