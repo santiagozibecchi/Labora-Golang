@@ -36,6 +36,11 @@ func isPrime(n int) bool {
 	return true
 }
 
+type IntSequence interface {
+	Next() int
+	Title() string
+}
+
 type LinearSequence struct {}
 type PrimesSequence struct {}
 type EvenSequence struct {}
@@ -54,6 +59,7 @@ type Predicate interface {
 	Fulfill(n int) bool
 }
 
+// Implementa los metodos de la interface IntSequence ==> es decir, todos los structs de tipo Sequence pueden hacer uso de los metodos de la interface IntSequence
 type Sequence struct {
 	currentNumber 	int
 	generator       string // Tipo de secuencia
@@ -61,21 +67,19 @@ type Sequence struct {
 	direction 		int // asc 0 - desc 1
 }
 
-
 func (s *Sequence) Next() int {
 	s.currentNumber++
 
-	
+
 
 	return s.currentNumber
 }
 
 func (s *Sequence) Title() string {
 	if s.direction == 0 {
-		return "Secuencia" + s.generator + " Ascendente."
+		return "Secuencia de " + s.generator + " Ascendente."
 	} 
-	
-	return "Secuencia" + s.generator +" Descendiente."
+	return "Secuencia de " + s.generator +" Descendiente."
 }
 
 
@@ -84,7 +88,6 @@ func determineOrder(n int) bool {
 	if n == 0 {
 		return true 
 	}
-
 	return false
 }
 
@@ -104,14 +107,18 @@ func main() {
 		fmt.Println("Se armara una secuencia en orden: DESENDENTE")
 		fmt.Println("--------------------------------------------")
 	}
-
 	
-
-
-
-
-
-	for i := 0; i < 30; i++ {
-		// fmt.Printf("%d ", sequence.Next())
+	newSequense := []IntSequence{
+		&Sequence{currentNumber: 0, generator: "Números enteros", predicate: &LinearSequence{}, direction: 0},
+		&Sequence{currentNumber: 0, generator: "Números primos", predicate: &PrimesSequence{}, direction: 0},
+		&Sequence{currentNumber: 0, generator: "Números pares", predicate: &EvenSequence{}, direction: 0},
 	}
+
+	fmt.Println(newSequense)
+
+
 }
+
+
+
+
