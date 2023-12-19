@@ -40,6 +40,9 @@ type IntSequence interface {
 	Next() int
 	Title() string
 }
+type Predicate interface {
+	Fulfill(n int) bool
+}
 
 type LinearSequence struct {}
 type PrimesSequence struct {}
@@ -55,9 +58,6 @@ func (s* EvenSequence) Fulfill(n int) bool {
 	return isEven(n)
 }
 
-type Predicate interface {
-	Fulfill(n int) bool
-}
 
 // Implementa los metodos de la interface IntSequence ==> es decir, todos los structs de tipo Sequence pueden hacer uso de los metodos de la interface IntSequence
 type Sequence struct {
@@ -68,18 +68,40 @@ type Sequence struct {
 }
 
 func (s *Sequence) Next() int {
-	s.currentNumber++
+	var next int
+	fulfillsPredicate := false
+	var n int
 
+	if s.direction == 0 {
+		n = s.currentNumber + 1
+	} else {
+		n = s.currentNumber - 1
+	}
 
+	for !fulfillsPredicate {
 
+		if s.predicate.Fulfill(n) {
+			next = n
+			fulfillsPredicate = true
+		}
+
+		if s.direction == 0 {
+			n++
+		} else {
+			n--
+		}
+	}
+
+	s.currentNumber = next
 	return s.currentNumber
 }
 
 func (s *Sequence) Title() string {
 	if s.direction == 0 {
-		return "Secuencia de " + s.generator + " Ascendente."
+		return "Secuencia de " + s.generator + " en Orden Ascendente:"
 	} 
-	return "Secuencia de " + s.generator +" Descendiente."
+
+	return "Secuencia de " + s.generator + " en Orden Descendiente:"
 }
 
 
@@ -96,25 +118,24 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 	randomNumber := rand.Intn(3)
 	zeroOrOne := rand.Intn(2)
-	var ascOrDescOrder bool
+	currentNumber := 30
 	fmt.Println("El resultado de la tira del dado es: ", randomNumber)
-
-	ascOrDescOrder = determineOrder(zeroOrOne)
-	if ascOrDescOrder {
-		fmt.Println("Se armara una secuencia en orden: ASCENDENTE")
-		fmt.Println("--------------------------------------------")
-	} else {
-		fmt.Println("Se armara una secuencia en orden: DESENDENTE")
-		fmt.Println("--------------------------------------------")
-	}
 	
 	newSequense := []IntSequence{
-		&Sequence{currentNumber: 0, generator: "Números enteros", predicate: &LinearSequence{}, direction: 0},
-		&Sequence{currentNumber: 0, generator: "Números primos", predicate: &PrimesSequence{}, direction: 0},
-		&Sequence{currentNumber: 0, generator: "Números pares", predicate: &EvenSequence{}, direction: 0},
+		&Sequence{currentNumber: currentNumber, generator: "Números enteros", predicate: &LinearSequence{}, direction: zeroOrOne},
+		&Sequence{currentNumber: currentNumber, generator: "Números primos", predicate: &PrimesSequence{}, direction: zeroOrOne},
+		&Sequence{currentNumber: currentNumber, generator: "Números pares", predicate: &EvenSequence{}, direction: zeroOrOne},
 	}
 
-	fmt.Println(newSequense)
+	selectedSequense := newSequense[randomNumber]
+	
+	fmt.Println(selectedSequense.Title())
+
+	for i := 0; i < 30; i++ {
+		fmt.Printf("%d ", selectedSequense.Next())
+	}
+
+
 
 
 }
