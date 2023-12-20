@@ -7,5 +7,5 @@
 
 Ejercicios que faltan:
 
-* concurrencia
-* Errores
+* concurrencia (canales y gorutinas)
+* Errores (wip)
